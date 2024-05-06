@@ -160,7 +160,7 @@ const Dashboard = () => {
           quantity: 1,
         },
       ]);
-    }    
+    }
   };
 
   const handleRemoveCart = (data) => {
@@ -183,7 +183,6 @@ const Dashboard = () => {
       setCart(filteredArr);
     }
   };
-
 
   const handleViewCart = () => {
     dispatch(storeCartArr(cartData));
@@ -220,6 +219,7 @@ const Dashboard = () => {
           <Buttons
             onClick={handleRemoveAll}
             type="button"
+            disabled={!data?.data?.length}
             variant="contained"
             text="Remove All"
           />
@@ -231,6 +231,7 @@ const Dashboard = () => {
           />
           <Button
             onClick={handleViewCart}
+            disabled={!data?.data?.length}
             variant="contained"
             sx={{ textTransform: "capitalize" }}
             endIcon={<AddShoppingCartIcon />}
@@ -247,6 +248,7 @@ const Dashboard = () => {
 
       <Box display="flex" justifyContent="start" marginY="24px">
         <SearchField
+          disabled={!data?.data?.length ? true : false}
           setSearchText={setSearchText}
           searchText={searchText}
           placeholder="Search product by name/price"
