@@ -1,5 +1,6 @@
+import { lazy } from "react";
 import { Navigate, useRoutes } from "react-router-dom";
-import Login from "../pages/auth/Login";
+const Login = lazy(() => import("../pages/auth/Login"));
 
 const PublicRoutes = () =>
   useRoutes([

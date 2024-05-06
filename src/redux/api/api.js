@@ -39,13 +39,6 @@ export const api = createApi({
       providesTags: ["Product"],
     }),
 
-    getSingleProduct: builder.query({
-      query: (data) => ({
-        url: `${data.url}/${data.id}`,
-      }),
-      providesTags: ["Product"],
-    }),
-
     addProduct: builder.mutation({
       query: (data) => ({
         url: data.url,
@@ -79,7 +72,6 @@ export const {
   useSignupUserMutation,
   useGetAllProductsQuery,
   useAddProductMutation,
-  useGetSingleProductQuery,
   useDeleteProductMutation,
   useUpdateProductMutation,
 } = api;
