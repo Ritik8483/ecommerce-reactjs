@@ -34,7 +34,6 @@ const Login = () => {
   });
 
   const handleSubmitForm = async (data) => {
-    console.log("data", data);
     if (toggle) {
       try {
         const payload = {

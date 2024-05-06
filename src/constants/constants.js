@@ -5,7 +5,6 @@ const updateProductCode = 3005;
 const addProductCode = 3002;
 const deleteProductCode = 3006;
 const serialno = "S.No.";
-const action = "Action";
 const tableHeadings = [
   "S.No.",
   "Product Name",
@@ -20,7 +19,6 @@ export {
   duplicacyErrCode,
   tableHeadings,
   serialno,
-  action,
   updateProductCode,
   addProductCode,
   deleteProductCode,

@@ -23,12 +23,16 @@ const signupSchema = yup
 
 const addProductSchema = yup
   .object({
-    name: yup.string().required("Name is required"),
+    name: yup
+      .string()
+      .max(30, "Name must not be greater than 30 digit")
+      .required("Name is required"),
     description: yup.string().required("Description is required"),
     price: yup
       .number()
       .typeError("Price must be a number")
       .min(1, "Price must be a postive value")
+      .max(10000000, "Price must not be greater than 1Cr.")
       .required("Price is required"),
   })
   .required();

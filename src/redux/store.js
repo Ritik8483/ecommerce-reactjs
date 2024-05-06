@@ -17,7 +17,7 @@ const persistConfig = {
   key: "root",
   version: 1,
   storage,
-  whiteList: ["authSlice"],
+  whiteList: ["authSlice","cartSlice"],
   blackList: ["snackbarSlice"],
 };
 
