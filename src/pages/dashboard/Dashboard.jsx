@@ -40,6 +40,7 @@ import {
   storeCartItems,
   storeCartValues,
 } from "../../redux/slices/cartSlice";
+import ChatModal from "../../components/chat/ChatModal";
 
 const Dashboard = () => {
   const dispatch = useDispatch();
@@ -63,6 +64,7 @@ const Dashboard = () => {
   const [cart, setCart] = useState(cartValuesArr || []);
   const [cartItems, setCartItems] = useState(cartItemsArr || []);
   const [cartData, setCartData] = useState(addedcartArr || []);
+  const [chatModal, setChatModal] = useState(false);
 
   const payload = {
     url: "product",
@@ -211,11 +213,22 @@ const Dashboard = () => {
 
   const onlyIds = cartItems?.map((item) => item._id);
 
+  const handleChat = () => {
+    setChatModal(true);
+  };
+
   return (
     <Box padding="20px">
       <Box display="flex" justifyContent="space-between" alignItems="center">
         <Typography>Hi {storedToken?.name}</Typography>
         <Box display="flex" gap="20px" alignItems="center">
+          <Buttons
+            onClick={handleChat}
+            type="button"
+            // disabled={!data?.data?.length}
+            variant="contained"
+            text="Chat"
+          />
           <Buttons
             onClick={handleRemoveAll}
             type="button"
@@ -393,6 +406,10 @@ const Dashboard = () => {
           onClose={() => setOpenProductModal(false)}
           productDetail={productDetail}
         />
+      )}
+
+      {chatModal && (
+        <ChatModal chatModal={chatModal} onHide={() => setChatModal(false)} />
       )}
     </Box>
   );

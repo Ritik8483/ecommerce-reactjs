@@ -22,6 +22,7 @@ export const api = createApi({
         body: data.body,
       }),
     }),
+
     signupUser: builder.mutation({
       query: (data) => ({
         url: data.url,
@@ -29,6 +30,13 @@ export const api = createApi({
         body: data.body,
       }),
     }),
+
+    getAllAuthUsers: builder.query({
+      query: (data) => ({
+        url: data.url,
+      }),
+    }),
+
     getAllProducts: builder.query({
       query: (data) => ({
         url: data.page
@@ -75,4 +83,5 @@ export const {
   useAddProductMutation,
   useDeleteProductMutation,
   useUpdateProductMutation,
+  useGetAllAuthUsersQuery
 } = api;
