@@ -40,6 +40,7 @@ import {
   storeCartItems,
   storeCartValues,
 } from "../../redux/slices/cartSlice";
+import { getRequest } from "../../axios/httpService";
 
 const Dashboard = () => {
   const dispatch = useDispatch();
@@ -70,6 +71,8 @@ const Dashboard = () => {
     limit: limit,
     search: debouncedValue || "",
   };
+
+  const usersdata = getRequest(payload).then((resp)=>console.log(resp));
 
   const { data, isLoading, error } = useGetAllProductsQuery(payload);
   const [deleteProduct] = useDeleteProductMutation();
